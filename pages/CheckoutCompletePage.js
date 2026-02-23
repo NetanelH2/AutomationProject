@@ -4,7 +4,7 @@ export class CheckoutCompletePage {
   constructor(page) {
     this.page = page
     this.completeTitle = page.getByText('Checkout: Complete!')
-    this.thankYouHeader = page.getByRole('heading', { name: /thank you/i })
+    this.thankYouHeader = page.locator('.complete-header')
   }
 
   async assertCheckoutCompleteVisible() {
@@ -15,6 +15,6 @@ export class CheckoutCompletePage {
   }
 
   async assertThankYouVisible() {
-    await expect(this.thankYouHeader).toBeVisible()
+    await expect(this.thankYouHeader).toContainText('Thank you')
   }
 }
