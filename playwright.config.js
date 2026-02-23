@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+import {defineConfig, devices} from '@playwright/test'
 
 /**
  * Read environment variables from file.
@@ -22,8 +22,9 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 2 : undefined,
+  baseURL: 'https://www.saucedemo.com',
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter:[
+  reporter: [
     [
       'html',
       {
@@ -39,7 +40,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
-    screenshot:{
+    screenshot: {
       mode: 'only-on-failure',
       fullPage: true,
     },
@@ -50,17 +51,17 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {...devices['Desktop Chrome']},
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {...devices['Desktop Firefox']},
     },
 
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: {...devices['Desktop Safari']},
     },
 
     /* Test against mobile viewports. */
@@ -90,5 +91,4 @@ export default defineConfig({
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-});
-
+})
