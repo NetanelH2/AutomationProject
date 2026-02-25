@@ -1,4 +1,4 @@
-import { expect } from '@playwright/test'
+import {expect} from '@playwright/test'
 
 export class CheckoutStepOnePage {
   constructor(page) {
@@ -17,7 +17,7 @@ export class CheckoutStepOnePage {
     )
   }
 
-  async fillAndContinue({ firstName, lastName, zip }) {
+  async fillAndContinue({firstName, lastName, zip}) {
     await this.firstNameInput.fill(firstName)
     await this.lastNameInput.fill(lastName)
     await this.zipInput.fill(zip)
