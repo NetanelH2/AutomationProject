@@ -1,19 +1,23 @@
-import { expect, test } from '@playwright/test'
-import { testData } from '../data/testData.js'
-import { LoginPage } from '../pages/LoginPage.js'
-import { InventoryPage } from '../pages/InventoryPage.js'
-import { CartPage } from '../pages/CartPage.js'
-import { CheckoutStepOnePage } from '../pages/CheckoutStepOnePage.js'
-import { CheckoutStepTwoPage } from '../pages/CheckoutStepTwoPage.js'
-import { CheckoutCompletePage } from '../pages/CheckoutCompletePage.js'
+import {expect, test} from '@playwright/test'
+import {testData} from '../data/testData.js'
+import {CartPage} from '../pages/CartPage.js'
+import {CheckoutCompletePage} from '../pages/CheckoutCompletePage.js'
+import {CheckoutStepOnePage} from '../pages/CheckoutStepOnePage.js'
+import {CheckoutStepTwoPage} from '../pages/CheckoutStepTwoPage.js'
+import {InventoryPage} from '../pages/InventoryPage.js'
+import {LoginPage} from '../pages/LoginPage.js'
 
 test.describe('Sanity - Full Purchase Flow', () => {
-  test('User can complete checkout successfully (add 2 items)', async ({ page }) => {
+  test('User can complete checkout successfully (add 2 items)', async ({
+    page,
+  }) => {
     const loginPage = new LoginPage(page)
     await loginPage.open()
     await loginPage.login(testData.users.standard, testData.password)
 
-    await expect(page).toHaveURL((url) => url.pathname.endsWith('/inventory.html'))
+    await expect(page).toHaveURL((url) =>
+      url.pathname.endsWith('/inventory.html'),
+    )
 
     const inventory = new InventoryPage(page)
     await inventory.assertInventoryPageVisible()
