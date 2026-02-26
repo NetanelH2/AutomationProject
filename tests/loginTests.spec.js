@@ -1,6 +1,6 @@
-import { expect, test } from '@playwright/test'
-import { testData } from '../data/testData.js'
-import { LoginPage } from '../pages/LoginPage.js'
+import {expect, test} from '@playwright/test'
+import {testData} from '../data/testData.js'
+import {LoginPage} from '../pages/LoginPage.js'
 
 test.describe('Negative Login Tests (Data-Driven)', () => {
   let loginPage
