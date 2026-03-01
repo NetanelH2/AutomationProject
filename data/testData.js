@@ -62,10 +62,12 @@ export const checkout = {
   zip: '12345',
 }
 
+// Make it a simple variable. no need for an object when you have only 1 value.
 export const inventory = {
   addItemsCount: 2,
 }
 
+// Don't overlap the export with another export. remove this one.
 export const testData = {
   password,
   users,

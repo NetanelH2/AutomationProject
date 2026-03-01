@@ -12,7 +12,7 @@ test.describe('Positive Login Tests', () => {
     inventoryPage = new InventoryPage(page)
     await loginPage.open()
   })
-
+  // Replace it with forEach loop
   for (const u of testData.positiveLoginUsers) {
     test(`Login succeeds: ${u.label}`, async ({page}) => {
       await loginPage.login(u.username, testData.password)

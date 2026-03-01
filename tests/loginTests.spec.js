@@ -9,7 +9,7 @@ test.describe('Negative Login Tests (Data-Driven)', () => {
     loginPage = new LoginPage(page)
     await loginPage.open()
   })
-
+  // Replace it with forEach loop
   for (const tc of testData.negativeLoginCases) {
     test(`Negative login: ${tc.name}`, async ({ page }) => {
       await loginPage.login(tc.username, tc.password)
